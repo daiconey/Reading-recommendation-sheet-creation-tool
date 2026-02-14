@@ -28,19 +28,44 @@
         
         /* Print Styles */
         @media print {
-            body {
-                background: white;
+            @page {
+                size: A4;
+                margin: 0;
             }
+            
+            html, body {
+                width: 210mm;
+                height: 297mm;
+                margin: 0;
+                padding: 0;
+                background: white;
+                overflow: hidden !important; /* Hide scrollbars */
+            }
+
             .no-print {
                 display: none !important;
             }
+
+            /* Reset Tailwind layout for print to ensure single page */
+            body {
+                display: block !important;
+                position: static !important;
+            }
+
             .a4-paper {
                 box-shadow: none;
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                padding: 10mm; /* Adjust for printer margins */
+                margin: 0 !important;
+                width: 210mm !important;
+                height: 297mm !important; /* Force exact A4 height */
+                padding: 15mm !important;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: none;
             }
+
             /* Ensure background graphics print */
             * {
                 -webkit-print-color-adjust: exact !important;
