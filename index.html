@@ -105,6 +105,13 @@
                 <p class="text-xs text-gray-500 mt-1">※Amazon等の画像アドレスを右クリックでコピーして貼り付け</p>
             </div>
 
+            <!-- Link URL (Moved here) -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">購入リンクURL (Amazonなど)</label>
+                <input type="text" id="input-link" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="https://amazon.co.jp/..." oninput="updatePreview()">
+                <p class="text-xs text-gray-500 mt-1">※URLを入力するとQRコードが生成されます</p>
+            </div>
+
             <!-- Basic Info -->
             <div class="grid grid-cols-2 gap-2">
                 <div>
@@ -146,39 +153,7 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">関連書籍・次に読む本</label>
-                <input type="text" id="input-related" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：『夜間飛行』, 『人間の土地』" oninput="updatePreview()">
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">著者名</label>
-                <input type="text" id="input-author" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：村上春樹" oninput="updatePreview()">
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">キャッチコピー（一言で）</label>
-                <input type="text" id="input-catch" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：100パーセントの恋愛小説" oninput="updatePreview()">
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">あらすじ・要約</label>
-                <textarea id="input-summary" rows="4" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="限りない喪失と再生を描いた物語。主人公のワタナベは、親友を自殺で失い、その恋人であった直子と、大学で出会った緑との間で揺れ動く。" oninput="updatePreview()"></textarea>
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">おすすめポイント (3点)</label>
-                <input type="text" id="input-point1" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" placeholder="例：独特な文体と比喩表現" oninput="updatePreview()">
-                <input type="text" id="input-point2" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" placeholder="例：登場人物たちの抱える孤独感" oninput="updatePreview()">
-                <input type="text" id="input-point3" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：音楽や食事の描写の美しさ" oninput="updatePreview()">
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">関連書籍・次に読む本</label>
-                <input type="text" id="input-related" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：『海辺のカフカ』" oninput="updatePreview()">
-            </div>
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">購入リンクURL (Amazonなど)</label>
-                <input type="text" id="input-link" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="https://amazon.co.jp/..." oninput="updatePreview()">
+                <input type="text" id="input-related" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：『海辺のカカアシス』" oninput="updatePreview()">
             </div>
         </div>
     </div>
@@ -228,10 +203,10 @@
                     <div class="w-full space-y-3">
                         <div class="bg-white border border-gray-300 p-4 rounded text-center">
                             <p class="text-xs text-gray-500 mb-1">CHECK THIS BOOK</p>
-                            <div id="qr-placeholder" class="bg-gray-200 w-24 h-24 mx-auto mb-2 flex items-center justify-center text-gray-400 text-xs">
+                            <div id="qr-placeholder" class="bg-gray-200 w-24 h-24 mx-auto mb-2 flex items-center justify-center text-gray-400 text-xs overflow-hidden">
                                 リンクQR
                             </div>
-                            <p class="text-xs text-gray-400">※URLを入力するとリンク生成</p>
+                            <p class="text-xs text-gray-400">※URLから自動生成</p>
                         </div>
                     </div>
                 </div>
@@ -304,6 +279,7 @@
             const point3 = document.getElementById('input-point3').value;
             const related = document.getElementById('input-related').value;
             const imgUrl = document.getElementById('input-image').value;
+            const linkUrl = document.getElementById('input-link').value;
 
             // Update DOM
             document.getElementById('disp-date').textContent = date;
@@ -334,6 +310,15 @@
             } else {
                 imgEl.style.display = 'none';
                 imgEl.nextElementSibling.style.display = 'flex';
+            }
+
+            // QR Code Handling
+            const qrContainer = document.getElementById('qr-placeholder');
+            if (linkUrl) {
+                // Using QR Server API for QR code generation
+                qrContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(linkUrl)}" alt="QR Code" class="w-full h-full object-contain">`;
+            } else {
+                qrContainer.innerHTML = 'リンクQR';
             }
         }
 
