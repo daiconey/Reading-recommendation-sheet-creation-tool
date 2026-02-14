@@ -119,34 +119,61 @@
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">書籍タイトル</label>
-                <input type="text" id="input-title" class="w-full border border-gray-300 rounded p-2 text-sm font-bold" value="ここにタイトルを入力" oninput="updatePreview()">
+                <input type="text" id="input-title" class="w-full border border-gray-300 rounded p-2 text-sm font-bold" placeholder="例：星の王子さま" oninput="updatePreview()">
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">著者名</label>
-                <input type="text" id="input-author" class="w-full border border-gray-300 rounded p-2 text-sm" value="著者名" oninput="updatePreview()">
+                <input type="text" id="input-author" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：アントワーヌ・ド・サン＝テグジュペリ" oninput="updatePreview()">
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">キャッチコピー（一言で）</label>
-                <input type="text" id="input-catch" class="w-full border border-gray-300 rounded p-2 text-sm" value="この本は、あなたの人生を変える一冊になる。" oninput="updatePreview()">
+                <input type="text" id="input-catch" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：心で見なくちゃ、ものごとはよく見えない。" oninput="updatePreview()">
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">あらすじ・要約</label>
-                <textarea id="input-summary" rows="4" class="w-full border border-gray-300 rounded p-2 text-sm" oninput="updatePreview()">ここに本のあらすじや要約を入力します。&#13;&#10;どのような課題に対して、どのような解決策が提示されているかなどを簡潔にまとめると伝わりやすくなります。</textarea>
+                <textarea id="input-summary" rows="4" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="砂漠に不時着した「僕」は、小さな星からやってきた王子さまと出会う。&#13;&#10;王子さまの旅の話を聞くうちに、大人が忘れてしまった大切なことに気づかされていく物語。" oninput="updatePreview()"></textarea>
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">おすすめポイント (3点)</label>
-                <input type="text" id="input-point1" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" value="ポイント1：具体的な事例が豊富" oninput="updatePreview()">
-                <input type="text" id="input-point2" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" value="ポイント2：明日から実践できる" oninput="updatePreview()">
-                <input type="text" id="input-point3" class="w-full border border-gray-300 rounded p-2 text-sm" value="ポイント3：初心者にもわかりやすい" oninput="updatePreview()">
+                <input type="text" id="input-point1" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" placeholder="例：子供だけでなく大人にこそ響く深い言葉" oninput="updatePreview()">
+                <input type="text" id="input-point2" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" placeholder="例：キツネが教えてくれる「絆」の意味" oninput="updatePreview()">
+                <input type="text" id="input-point3" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：美しい挿絵と切ないラスト" oninput="updatePreview()">
             </div>
 
             <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1">関連書籍・次に読む本</label>
-                <input type="text" id="input-related" class="w-full border border-gray-300 rounded p-2 text-sm" value="『7つの習慣』, 『思考は現実化する』" oninput="updatePreview()">
+                <input type="text" id="input-related" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：『夜間飛行』, 『人間の土地』" oninput="updatePreview()">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">著者名</label>
+                <input type="text" id="input-author" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：村上春樹" oninput="updatePreview()">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">キャッチコピー（一言で）</label>
+                <input type="text" id="input-catch" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：100パーセントの恋愛小説" oninput="updatePreview()">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">あらすじ・要約</label>
+                <textarea id="input-summary" rows="4" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="限りない喪失と再生を描いた物語。主人公のワタナベは、親友を自殺で失い、その恋人であった直子と、大学で出会った緑との間で揺れ動く。" oninput="updatePreview()"></textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">おすすめポイント (3点)</label>
+                <input type="text" id="input-point1" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" placeholder="例：独特な文体と比喩表現" oninput="updatePreview()">
+                <input type="text" id="input-point2" class="w-full border border-gray-300 rounded p-2 text-sm mb-2" placeholder="例：登場人物たちの抱える孤独感" oninput="updatePreview()">
+                <input type="text" id="input-point3" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：音楽や食事の描写の美しさ" oninput="updatePreview()">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">関連書籍・次に読む本</label>
+                <input type="text" id="input-related" class="w-full border border-gray-300 rounded p-2 text-sm" placeholder="例：『海辺のカフカ』" oninput="updatePreview()">
             </div>
 
             <div>
@@ -250,11 +277,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <div class="mt-8 pt-4 border-t border-gray-200 text-center text-xs text-gray-400">
-                 Recommended by <span class="font-bold text-gray-500">Book Lover</span>
-            </div>
         </div>
         <!-- A4 Sheet End -->
 
@@ -289,10 +311,10 @@
             document.getElementById('disp-author').textContent = author || '著者名';
             document.getElementById('disp-catch').textContent = catchCopy || 'キャッチコピー';
             document.getElementById('disp-summary').textContent = summary || '要約...';
-            document.getElementById('disp-point1').textContent = point1;
-            document.getElementById('disp-point2').textContent = point2;
-            document.getElementById('disp-point3').textContent = point3;
-            document.getElementById('disp-related').textContent = related;
+            document.getElementById('disp-point1').textContent = point1 || 'ポイント1';
+            document.getElementById('disp-point2').textContent = point2 || 'ポイント2';
+            document.getElementById('disp-point3').textContent = point3 || 'ポイント3';
+            document.getElementById('disp-related').textContent = related || '関連書籍情報';
 
             // Rating Stars
             const starsContainer = document.getElementById('disp-rating');
